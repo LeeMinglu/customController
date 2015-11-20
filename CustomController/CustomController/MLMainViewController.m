@@ -60,11 +60,13 @@
 
 - (void)switchVc:(int)index {
    
-    //移除原来的视图
-    [self.showingVc.view removeFromSuperview];
-    
     //添加新的控制器
     UIViewController *newVc = self.childViewControllers[index];
+    
+    if (newVc == self.showingVc) return;
+    
+    //移除原来的视图
+    [self.showingVc.view removeFromSuperview];
     newVc.view.frame = self.contentView.bounds;
     [self.contentView addSubview:newVc.view];
     
@@ -74,6 +76,8 @@
 
     NSLog(@"new:%td, old:%td",newIndex, oldIndex);
     
+    //如果
+    if (oldIndex == NSNotFound) return;
     CATransition *animation = [CATransition animation];
     animation.type = @"cube";
     if (newIndex > oldIndex) {
