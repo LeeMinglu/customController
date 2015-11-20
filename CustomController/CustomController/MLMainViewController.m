@@ -7,8 +7,17 @@
 //
 
 #import "MLMainViewController.h"
+#import "MLOneViewController.h"
+#import "MLTwoViewController.h"
+#import "MLThreeViewController.h"
+#define MLHEIGHT 44
 
 @interface MLMainViewController ()
+
+@property (nonatomic, strong) MLOneViewController *one;
+@property (nonatomic, strong) MLTwoViewController *two;
+@property (nonatomic, strong) MLThreeViewController *three;
+
 - (IBAction)clickOneButton:(id)sender;
 
 - (IBAction)clickTwoButton:(id)sender;
@@ -32,6 +41,7 @@
 - (IBAction)clickOneButton:(id)sender {
     
     NSLog(@"点击了第一个");
+    [self.view addSubview:self.one.view];
     
 }
 
@@ -42,4 +52,40 @@
 - (IBAction)clickThreeButton:(id)sender {
     NSLog(@"点击了第三个");
 }
+
+
+
+
+
+#pragma mark - 控制器懒加载
+
+- (MLOneViewController *)one {
+    if (!_one) {
+        _one = [[MLOneViewController alloc] init];
+        _one.view.frame = self.getFrame;
+    }
+    return _one;
+}
+
+- (MLTwoViewController *)two {
+    if (!_two) {
+        _two = [[MLTwoViewController alloc] init];
+        _two.view.frame = self.getFrame;
+    }
+    return _two;
+}
+
+- (MLThreeViewController *)three {
+    if (!_three) {
+        _three = [[MLThreeViewController alloc] init];
+        _three.view.frame = self.getFrame;
+    }
+    return _three;
+}
+
+
+- (CGRect)getFrame {
+    return CGRectMake(0, MLHEIGHT, self.view.frame.size.width, self.view.frame.size.height - MLHEIGHT);
+}
+
 @end

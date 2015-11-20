@@ -1,5 +1,5 @@
 //
-//  MLOneController.h
+//  MLOneViewController.h
 //  CustomController
 //
 //  Created by 李明禄 on 15/11/20.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MLOneController : UITableViewController
+@interface MLOneViewController : UITableViewController
 
 @end

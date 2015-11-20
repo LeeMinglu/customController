@@ -12,12 +12,12 @@
 		1A0884571BFEDA3000A7DF59 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A0884551BFEDA3000A7DF59 /* Main.storyboard */; };
 		1A0884591BFEDA3000A7DF59 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A0884581BFEDA3000A7DF59 /* Assets.xcassets */; };
 		1A08845C1BFEDA3000A7DF59 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A08845A1BFEDA3000A7DF59 /* LaunchScreen.storyboard */; };
-		1A08846B1BFEDB2900A7DF59 /* MLOneController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A08846A1BFEDB2900A7DF59 /* MLOneController.m */; };
 		1A08847C1BFEDCAD00A7DF59 /* MLTwoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A08847A1BFEDCAD00A7DF59 /* MLTwoViewController.m */; };
 		1A08847D1BFEDCAD00A7DF59 /* MLTwoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A08847B1BFEDCAD00A7DF59 /* MLTwoViewController.xib */; };
 		1A0884811BFEDCBE00A7DF59 /* MLThreeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A08847F1BFEDCBE00A7DF59 /* MLThreeViewController.m */; };
 		1A0884821BFEDCBE00A7DF59 /* MLThreeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A0884801BFEDCBE00A7DF59 /* MLThreeViewController.xib */; };
 		1A0884851BFEDCFD00A7DF59 /* MLMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A0884841BFEDCFD00A7DF59 /* MLMainViewController.m */; };
+		1A8B07101BFEE587007621D6 /* MLOneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A8B070F1BFEE587007621D6 /* MLOneViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,8 +29,6 @@
 		1A0884581BFEDA3000A7DF59 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1A08845B1BFEDA3000A7DF59 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1A08845D1BFEDA3000A7DF59 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1A0884691BFEDB2900A7DF59 /* MLOneController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLOneController.h; sourceTree = "<group>"; };
-		1A08846A1BFEDB2900A7DF59 /* MLOneController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLOneController.m; sourceTree = "<group>"; };
 		1A0884791BFEDCAD00A7DF59 /* MLTwoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLTwoViewController.h; sourceTree = "<group>"; };
 		1A08847A1BFEDCAD00A7DF59 /* MLTwoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLTwoViewController.m; sourceTree = "<group>"; };
 		1A08847B1BFEDCAD00A7DF59 /* MLTwoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MLTwoViewController.xib; sourceTree = "<group>"; };
@@ -39,6 +37,8 @@
 		1A0884801BFEDCBE00A7DF59 /* MLThreeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MLThreeViewController.xib; sourceTree = "<group>"; };
 		1A0884831BFEDCFD00A7DF59 /* MLMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLMainViewController.h; sourceTree = "<group>"; };
 		1A0884841BFEDCFD00A7DF59 /* MLMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLMainViewController.m; sourceTree = "<group>"; };
+		1A8B070E1BFEE587007621D6 /* MLOneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLOneViewController.h; sourceTree = "<group>"; };
+		1A8B070F1BFEE587007621D6 /* MLOneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLOneViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,8 +75,8 @@
 				1A0884501BFEDA3000A7DF59 /* AppDelegate.m */,
 				1A0884831BFEDCFD00A7DF59 /* MLMainViewController.h */,
 				1A0884841BFEDCFD00A7DF59 /* MLMainViewController.m */,
-				1A0884691BFEDB2900A7DF59 /* MLOneController.h */,
-				1A08846A1BFEDB2900A7DF59 /* MLOneController.m */,
+				1A8B070E1BFEE587007621D6 /* MLOneViewController.h */,
+				1A8B070F1BFEE587007621D6 /* MLOneViewController.m */,
 				1A0884791BFEDCAD00A7DF59 /* MLTwoViewController.h */,
 				1A08847A1BFEDCAD00A7DF59 /* MLTwoViewController.m */,
 				1A08847B1BFEDCAD00A7DF59 /* MLTwoViewController.xib */,
@@ -176,10 +176,10 @@
 			files = (
 				1A0884511BFEDA3000A7DF59 /* AppDelegate.m in Sources */,
 				1A08847C1BFEDCAD00A7DF59 /* MLTwoViewController.m in Sources */,
+				1A8B07101BFEE587007621D6 /* MLOneViewController.m in Sources */,
 				1A0884851BFEDCFD00A7DF59 /* MLMainViewController.m in Sources */,
 				1A08844E1BFEDA3000A7DF59 /* main.m in Sources */,
 				1A0884811BFEDCBE00A7DF59 /* MLThreeViewController.m in Sources */,
-				1A08846B1BFEDB2900A7DF59 /* MLOneController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -326,6 +326,7 @@
 				1A0884621BFEDA3000A7DF59 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
