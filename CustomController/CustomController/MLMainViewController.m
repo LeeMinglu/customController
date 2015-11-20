@@ -10,7 +10,6 @@
 #import "MLOneViewController.h"
 #import "MLTwoViewController.h"
 #import "MLThreeViewController.h"
-#define MLHEIGHT 44
 
 @interface MLMainViewController ()
 
@@ -58,7 +57,66 @@
     [self switchVc:2];
 }
 
+//
+//- (void)switchVc:(int)index
+//{
+//    UIViewController *newVc = self.childViewControllers[index];
+//    // 如果index对应的子控制器正在显示,就直接返回
+//    if (newVc == self.showingVc) return;
+//    
+//    // 设置新控制器 view 的 frame
+//    CGRect newFrame = self.contentView.bounds;
+//    newFrame.origin.x = self.contentView.frame.size.width;
+//    newVc.view.frame = newFrame;
+//    [self.contentView addSubview:newVc.view];
+//    
+//    // 动画
+//    [UIView animateWithDuration:0.5 animations:^{
+//        CGRect oldFrame = self.showingVc.view.frame;
+//        oldFrame.origin.x = - self.view.frame.size.width;
+//        self.showingVc.view.frame = oldFrame;
+//        
+//        newVc.view.frame = self.contentView.bounds;
+//    }completion:^(BOOL finished) {
+//        [self.showingVc.view removeFromSuperview];
+//        self.showingVc = newVc;
+//    }];
+//}
+//
+
 - (void)switchVc:(int)index {
+    
+    //添加新的控制器
+    UIViewController *newVc = self.childViewControllers[index];
+    
+    if (newVc == self.showingVc) return;
+    
+    CGRect frame = self.contentView.bounds;
+    frame.origin.x = self.contentView.frame.size.width;
+    newVc.view.frame = frame;
+    [self.contentView addSubview:newVc.view];
+    
+    //执行动画
+    [UIView animateWithDuration:2.0 animations:^{
+        CGRect oldFrame = self.showingVc.view.frame;
+        oldFrame.origin.x = -self.view.frame.size.width;
+        self.showingVc.view.frame = oldFrame;
+        
+        newVc.view.frame = self.contentView.bounds;
+    } completion:^(BOOL finished) {
+        [self.showingVc.view removeFromSuperview];
+        self.showingVc = newVc;
+        
+    }];
+    
+    
+    
+}
+
+
+
+
+- (void)switchVc2:(int)index {
    
     //添加新的控制器
     UIViewController *newVc = self.childViewControllers[index];
@@ -90,11 +148,6 @@
     [self.contentView.layer addAnimation:animation forKey:nil];
 
     
-}
-
-
-- (CGRect)getFrame {
-    return CGRectMake(0, MLHEIGHT, self.view.frame.size.width, self.view.frame.size.height - MLHEIGHT);
 }
 
 
