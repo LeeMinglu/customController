@@ -14,9 +14,9 @@
 
 @interface MLMainViewController ()
 
-@property (nonatomic, strong) MLOneViewController *one;
-@property (nonatomic, strong) MLTwoViewController *two;
-@property (nonatomic, strong) MLThreeViewController *three;
+@property (nonatomic, strong) UIViewController *showingVc;
+
+@property(nonatomic, strong) NSMutableArray *vces;
 
 - (IBAction)clickOneButton:(id)sender;
 
@@ -29,8 +29,6 @@
 @implementation MLMainViewController
 
 
-
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -39,63 +37,54 @@
 
 
 - (IBAction)clickOneButton:(id)sender {
-    
     NSLog(@"点击了第一个");
-    [self.two.view removeFromSuperview];
-    [self.three.view removeFromSuperview];
-
-    [self.view addSubview:self.one.view];
+    [self switchVc:0];
     
 }
 
 - (IBAction)clickTwoButton:(id)sender {
     NSLog(@"点击了第二个");
-    [self.one.view removeFromSuperview];
-    [self.three.view removeFromSuperview];
-    [self.view addSubview:self.two.view];
+    [self switchVc:1];
     
 }
 
 - (IBAction)clickThreeButton:(id)sender {
     NSLog(@"点击了第三个");
-    [self.two.view removeFromSuperview];
-    [self.one.view removeFromSuperview];
-    [self.view addSubview:self.three.view];
+    [self switchVc:2];
 }
 
-
-
-
-
-#pragma mark - 控制器懒加载
-
-- (MLOneViewController *)one {
-    if (!_one) {
-        _one = [[MLOneViewController alloc] init];
-        _one.view.frame = self.getFrame;
+- (void)switchVc:(int)index {
+    for (int i = 0; i < self.vces.count; i++) {
+        if (i != index) {
+//            移除view
+            [[self.vces[i] view] removeFromSuperview];
+        }
     }
-    return _one;
-}
-
-- (MLTwoViewController *)two {
-    if (!_two) {
-        _two = [[MLTwoViewController alloc] init];
-        _two.view.frame = self.getFrame;
-    }
-    return _two;
-}
-
-- (MLThreeViewController *)three {
-    if (!_three) {
-        _three = [[MLThreeViewController alloc] init];
-        _three.view.frame = self.getFrame;
-    }
-    return _three;
+    
+    //添加新的控制器
+    UIViewController *newVc = self.vces[index];
+    newVc.view.frame = CGRectMake(0, MLHEIGHT, self.view.frame.size.width, self.view.frame.size.height - MLHEIGHT);
+    [self.view addSubview:newVc.view];
+    
 }
 
 
 - (CGRect)getFrame {
     return CGRectMake(0, MLHEIGHT, self.view.frame.size.width, self.view.frame.size.height - MLHEIGHT);
+}
+
+- (NSMutableArray *)vces {
+    if (!_vces) {
+        //刚才忘记初始化.
+        _vces = [NSMutableArray array];
+        MLOneViewController *one = [[MLOneViewController alloc] init];
+        MLTwoViewController *two = [[MLTwoViewController alloc] init];
+        MLThreeViewController *three = [[MLThreeViewController alloc] init];
+        [_vces addObject:one];
+        [_vces addObject:two];
+        [_vces addObject:three];
+    }
+    return _vces;
 }
 
 @end
