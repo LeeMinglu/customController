@@ -47,10 +47,13 @@
 
 - (IBAction)clickTwoButton:(id)sender {
     NSLog(@"点击了第二个");
+    [self.view addSubview:self.two.view];
+    
 }
 
 - (IBAction)clickThreeButton:(id)sender {
     NSLog(@"点击了第三个");
+    [self.view addSubview:self.three.view];
 }
 
 
