@@ -63,15 +63,27 @@
                                     <constraint firstAttribute="bottom" secondItem="yWU-8l-3yB" secondAttribute="bottom" id="ulK-fT-ZhL"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sj5-Z7-e0p">
+                                <rect key="frame" x="0.0" y="44" width="600" height="556"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Sj5-Z7-e0p" secondAttribute="bottom" id="9tS-fw-31b"/>
                             <constraint firstAttribute="trailing" secondItem="sOd-x6-un3" secondAttribute="trailing" id="Ahe-fI-Tou"/>
+                            <constraint firstItem="Sj5-Z7-e0p" firstAttribute="top" secondItem="sOd-x6-un3" secondAttribute="bottom" id="FtJ-5x-2dm"/>
                             <constraint firstItem="sOd-x6-un3" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="JCf-Ks-5T5"/>
                             <constraint firstItem="sOd-x6-un3" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="MbV-Bl-96M"/>
+                            <constraint firstAttribute="trailing" secondItem="Sj5-Z7-e0p" secondAttribute="trailing" id="TcZ-lG-bjl"/>
+                            <constraint firstItem="Sj5-Z7-e0p" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="cXn-5d-gmz"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="contentView" destination="Sj5-Z7-e0p" id="UYT-x1-L7q"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

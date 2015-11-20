@@ -21,6 +21,7 @@
 - (IBAction)clickTwoButton:(id)sender;
 
 - (IBAction)clickThreeButton:(id)sender;
+@property (weak, nonatomic) IBOutlet UIView *contentView;
 
 @end
 
@@ -64,10 +65,19 @@
     
     //添加新的控制器
     UIViewController *newVc = self.childViewControllers[index];
-    newVc.view.frame = CGRectMake(0, MLHEIGHT, self.view.frame.size.width, self.view.frame.size.height - MLHEIGHT);
-    [self.view addSubview:newVc.view];
+    newVc.view.frame = self.contentView.bounds;
+    [self.contentView addSubview:newVc.view];
     
     self.showingVc = newVc;
+    
+    
+    CATransition *animation = [CATransition animation];
+    animation.type = @"moveIn";
+    animation.subtype = kCATransitionFromLeft;
+    
+    animation.duration =2.0;
+    [self.contentView.layer addAnimation:animation forKey:nil];
+
     
 }
 
