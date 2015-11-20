@@ -41,18 +41,25 @@
 - (IBAction)clickOneButton:(id)sender {
     
     NSLog(@"点击了第一个");
+    [self.two.view removeFromSuperview];
+    [self.three.view removeFromSuperview];
+
     [self.view addSubview:self.one.view];
     
 }
 
 - (IBAction)clickTwoButton:(id)sender {
     NSLog(@"点击了第二个");
+    [self.one.view removeFromSuperview];
+    [self.three.view removeFromSuperview];
     [self.view addSubview:self.two.view];
     
 }
 
 - (IBAction)clickThreeButton:(id)sender {
     NSLog(@"点击了第三个");
+    [self.two.view removeFromSuperview];
+    [self.one.view removeFromSuperview];
     [self.view addSubview:self.three.view];
 }
 
