@@ -14,9 +14,7 @@
 
 @interface MLMainViewController ()
 
-@property (nonatomic, strong) UIViewController *showingVc;
-
-@property(nonatomic, strong) NSMutableArray *vces;
+@property (nonatomic, weak) UIViewController *showingVc;
 
 - (IBAction)clickOneButton:(id)sender;
 
@@ -32,6 +30,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    MLOneViewController *one = [[MLOneViewController alloc] init];
+    MLTwoViewController *two = [[MLTwoViewController alloc] init];
+    MLThreeViewController *three = [[MLThreeViewController alloc] init];
+    [self addChildViewController:one];
+    [self addChildViewController:two];
+    [self addChildViewController:three];
 }
 
 
@@ -54,17 +58,16 @@
 }
 
 - (void)switchVc:(int)index {
-    for (int i = 0; i < self.vces.count; i++) {
-        if (i != index) {
-//            移除view
-            [[self.vces[i] view] removeFromSuperview];
-        }
-    }
+   
+    //移除原来的视图
+    [self.showingVc.view removeFromSuperview];
     
     //添加新的控制器
-    UIViewController *newVc = self.vces[index];
+    UIViewController *newVc = self.childViewControllers[index];
     newVc.view.frame = CGRectMake(0, MLHEIGHT, self.view.frame.size.width, self.view.frame.size.height - MLHEIGHT);
     [self.view addSubview:newVc.view];
+    
+    self.showingVc = newVc;
     
 }
 
@@ -73,18 +76,5 @@
     return CGRectMake(0, MLHEIGHT, self.view.frame.size.width, self.view.frame.size.height - MLHEIGHT);
 }
 
-- (NSMutableArray *)vces {
-    if (!_vces) {
-        //刚才忘记初始化.
-        _vces = [NSMutableArray array];
-        MLOneViewController *one = [[MLOneViewController alloc] init];
-        MLTwoViewController *two = [[MLTwoViewController alloc] init];
-        MLThreeViewController *three = [[MLThreeViewController alloc] init];
-        [_vces addObject:one];
-        [_vces addObject:two];
-        [_vces addObject:three];
-    }
-    return _vces;
-}
 
 @end
