@@ -68,12 +68,19 @@
     newVc.view.frame = self.contentView.bounds;
     [self.contentView addSubview:newVc.view];
     
+    NSUInteger newIndex = index;
+    NSUInteger oldIndex = [self.childViewControllers indexOfObject:self.showingVc];
     self.showingVc = newVc;
-    
+
+    NSLog(@"new:%td, old:%td",newIndex, oldIndex);
     
     CATransition *animation = [CATransition animation];
-    animation.type = @"moveIn";
-    animation.subtype = kCATransitionFromLeft;
+    animation.type = @"cube";
+    if (newIndex > oldIndex) {
+        animation.subtype = kCATransitionFromRight;
+    } else{
+        animation.subtype = kCATransitionFromLeft;
+    }
     
     animation.duration =2.0;
     [self.contentView.layer addAnimation:animation forKey:nil];
